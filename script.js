@@ -703,8 +703,8 @@
             if (currentCart.length === 0) {
                 cartItems.innerHTML = '<p style="text-align: center; color: #777;">Your cart is empty</p>';
                 cartSubtotal.textContent = '$0.00';
-                cartTax.textContent = '$0.00';
-                cartTotal.textContent = '$0.00';
+                cartTax.textContent = '₵0.00';
+                cartTotal.textContent = '₵0.00';
                 return;
             }
             
