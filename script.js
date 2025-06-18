@@ -360,7 +360,7 @@
             const todayStr = today.toISOString().split('T')[0];
             const todaySales = storeData.sales.filter(s => s.date === todayStr);
             const todayTotal = todaySales.reduce((sum, sale) => sum + sale.total, 0);
-            todaySalesElement.textContent = `$${todayTotal.toFixed(2)}`;
+            todaySalesElement.textContent = `₵${todayTotal.toFixed(2)}`;
             
             // Sales chart
             renderSalesChart();
@@ -475,7 +475,7 @@
                     <td>${product.id}</td>
                     <td>${product.name}</td>
                     <td>${product.category}</td>
-                    <td>$${product.price.toFixed(2)}</td>
+                    <td>₵${product.price.toFixed(2)}</td>
                     <td>${product.stock}</td>
                     <td>${product.expiry || 'N/A'}</td>
                     <td><span class="badge ${statusClass}">${status}</span></td>
@@ -637,7 +637,7 @@
                     </div>
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-price">₵${product.price.toFixed(2)}</div>
                         <div class="product-stock">${product.stock} in stock</div>
                     </div>
                 `;
@@ -720,7 +720,7 @@
                 cartItem.innerHTML = `
                     <div class="cart-item-info">
                         <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
+                        <div class="cart-item-price">₵${item.price.toFixed(2)} each</div>
                     </div>
                     <div class="cart-item-actions">
                         <button class="action-btn decrease-btn" data-id="${item.productId}">−</button>
@@ -737,9 +737,9 @@
             const tax = subtotal * (storeData.settings.taxRate / 100);
             const total = subtotal + tax;
             
-            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-            cartTax.textContent = `$${tax.toFixed(2)}`;
-            cartTotal.textContent = `$${total.toFixed(2)}`;
+            cartSubtotal.textContent = `₵${subtotal.toFixed(2)}`;
+            cartTax.textContent = `₵${tax.toFixed(2)}`;
+            cartTotal.textContent = `₵${total.toFixed(2)}`;
             
             // Add event listeners to cart buttons
             document.querySelectorAll('.decrease-btn').forEach(btn => {
@@ -858,7 +858,7 @@
             updateCart();
             
             // Show success message
-            alert(`Sale completed successfully! Total: $${total.toFixed(2)}`);
+            alert(`Sale completed successfully! Total: ₵${total.toFixed(2)}`);
             
             // Refresh dashboard if we're on it
             if (currentPage === 'dashboard') {
@@ -933,7 +933,7 @@
                 
                 row.innerHTML = `
                     <td>${formatDate(date)}</td>
-                    <td>$${data.total.toFixed(2)}</td>
+                    <td>₵${data.total.toFixed(2)}</td>
                     <td>${data.items}</td>
                     <td>
                         <button class="action-btn view-btn" data-date="${date}">👁️ View</button>
@@ -987,7 +987,7 @@
                 
                 row.innerHTML = `
                     <td>${formatMonth(month)}</td>
-                    <td>$${data.total.toFixed(2)}</td>
+                    <td>₵${data.total.toFixed(2)}</td>
                     <td>${data.items}</td>
                     <td>
                         <button class="action-btn view-btn" data-month="${month}">👁️ View</button>
@@ -1083,17 +1083,17 @@
             
             dailySales.forEach(sale => {
                 const user = storeData.users.find(u => u.id === sale.userId);
-                message += `Sale #${sale.id} (by ${user.username}): $${sale.total.toFixed(2)}\n`;
+                message += `Sale #${sale.id} (by ${user.username}): ₵${sale.total.toFixed(2)}\n`;
                 total += sale.total;
                 
                 sale.items.forEach(item => {
-                    message += `- ${item.name} (${item.quantity} @ $${item.price.toFixed(2)})\n`;
+                    message += `- ${item.name} (${item.quantity} @ ₵${item.price.toFixed(2)})\n`;
                 });
                 
                 message += '\n';
             });
             
-            message += `Total for day: $${total.toFixed(2)}`;
+            message += `Total for day: ₵${total.toFixed(2)}`;
             
             alert(message);
         }
@@ -1126,12 +1126,12 @@
             });
             
             Object.entries(salesByDay).forEach(([date, dailyTotal]) => {
-                message += `${formatDate(date)}: $${dailyTotal.toFixed
+                message += `${formatDate(date)}: ₵${dailyTotal.toFixed
 
                 (2)}\n`;
                             });
 
-                            message += `\nTotal for month: $${total.toFixed(2)}`;
+                            message += `\nTotal for month: ₵${total.toFixed(2)}`;
 
                             alert(message);
                         }
