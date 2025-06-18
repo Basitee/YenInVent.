@@ -312,17 +312,16 @@
 
         /* Inventory */
         .inventory-actions {
-            display: flex;
-            justify-content: space-between;
+ display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
-            gap: 1rem;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            @media (max-width: 576px) {
+            @media (max-width: auto) {
                 flex-direction: column;
-                width: 100%;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
         }
 
         .search-box {
